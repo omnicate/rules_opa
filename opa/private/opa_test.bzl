@@ -13,7 +13,7 @@ def _opa_test_impl(ctx):
 
     ctx.actions.write(
         output = test_file,
-        content = "%s test %s %s" % (toolchain.opa.short_path, bundle.short_path, " ".join([f.short_path for f in ctx.files.srcs])),
+        content = "#!/usr/bin/env bash\n%s test %s %s" % (toolchain.opa.short_path, bundle.short_path, " ".join([f.short_path for f in ctx.files.srcs])),
         is_executable = True,
     )
 

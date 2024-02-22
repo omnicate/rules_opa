@@ -29,7 +29,7 @@ def _opa_eval_binary_impl(ctx):
 
     ctx.actions.write(
         output = exec_file,
-        content = "%s %s %s" % (toolchain.opa.short_path, " ".join(args), suffix),
+        content = "#!/usr/bin/env bash\n%s %s %s" % (toolchain.opa.short_path, " ".join(args), suffix),
         is_executable = True,
     )
 
